@@ -31,22 +31,5 @@ namespace dotnet_features
                 userInterface.WriteMessage("Finished!");
             }
         }
-
-        // static IEnumerable<BaseCommand> GetCommands(params object[] constructorArgs)
-        // {
-        //     var types = Assembly.
-        //         GetAssembly(typeof(BaseCommand))
-        //         .GetTypes()
-        //         .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(BaseCommand)));
-
-        //     var commands = new List<BaseCommand>();
-
-        //     foreach (Type type in types)
-        //     {
-        //         commands.Add((BaseCommand)Activator.CreateInstance(typeof(BaseCommand), constructorArgs));
-        //     }
-
-        //     return commands;
-        // }
     }
 }
