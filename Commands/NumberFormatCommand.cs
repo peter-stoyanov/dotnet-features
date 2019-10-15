@@ -5,7 +5,7 @@ namespace dotnet_features.Commands
 {
     public class NumberFormatCommand : BaseCommand
     {
-        protected override bool isActive => true;
+        protected override bool isActive => false;
         public NumberFormatCommand(IUserInterface userInteface) : base(userInteface)
         {
         }

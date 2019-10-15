@@ -8,7 +8,7 @@ namespace dotnet_features.Commands
 {
     public class TuplesCommand : BaseCommand
     {
-        protected override bool isActive => true;
+        protected override bool isActive => false;
 
         public TuplesCommand(IUserInterface userInteface) : base(userInteface)
         {

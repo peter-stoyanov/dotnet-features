@@ -8,7 +8,7 @@ namespace dotnet_features.Commands
 {
     public class RangesCommand : BaseCommand
     {
-        protected override bool isActive => true;
+        protected override bool isActive => false;
 
         public RangesCommand(IUserInterface userInteface) : base(userInteface)
         {
