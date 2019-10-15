@@ -8,11 +8,11 @@ namespace dotnet_features.Commands
     {
         protected virtual bool isActive => false;
 
-        protected IUserInterface Interface { get; }
+        protected IUserInterface UI { get; set; }
 
         protected BaseCommand(IUserInterface userInteface)
         {
-            Interface = userInteface;
+            UI = userInteface;
         }
 
         public CommandResult RunCommand()
@@ -21,7 +21,7 @@ namespace dotnet_features.Commands
             {
                 if (isActive)
                 {
-                    Interface.WriteMessage($"Executing {this.GetType().Name}.");
+                    UI.WriteMessage($"Executing {this.GetType().Name}.");
 
                     return InternalCommand();
                 }
@@ -32,8 +32,8 @@ namespace dotnet_features.Commands
             }
             catch (Exception exception)
             {
-                Interface.WriteWarning($"Error while executing {this.GetType().Name}.");
-                Interface.WriteWarning(exception.ToString());
+                UI.WriteWarning($"Error while executing {this.GetType().Name}.");
+                UI.WriteWarning(exception.ToString());
 
                 return CommandResult.Error;
             }
