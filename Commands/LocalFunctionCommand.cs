@@ -1,11 +1,12 @@
 
+using System;
 using dotnet_features.UserInterface;
 
 namespace dotnet_features.Commands
 {
     public class LocalFunctionCommand : BaseCommand
     {
-        protected override bool isActive => false;
+        protected override bool isActive => true;
         public LocalFunctionCommand(IUserInterface userInteface) : base(userInteface)
         {
         }
@@ -29,6 +30,9 @@ namespace dotnet_features.Commands
                 SubjectName = "Chem",
                 Marks = 91
             });
+
+            var result = GetFactorialUsingLocal(10);
+            UI.WriteMessage($"Factorial of 10 is: {result}");
 
             return CommandResult.Success;
         }
@@ -82,6 +86,24 @@ namespace dotnet_features.Commands
                 get;
                 set;
             }
+        }
+
+        private long GetFactorialUsingLocal(int number)
+        {
+            if (number < 0) throw new ArgumentException("negative number", nameof(number));
+            if (number == 0) return 1;
+
+            long result = number;
+            while (number > 1)
+            {
+                Multiply(number - 1);
+                number--;
+            }
+
+            // Local function does not need to maintain call stack
+            void Multiply(int x) => result *= x;
+
+            return result;
         }
     }
 }
