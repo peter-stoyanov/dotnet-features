@@ -21,7 +21,7 @@ namespace dotnet_features.Commands
             {
                 if (isActive)
                 {
-                    Interface.WriteMessage($"Executing {nameof(BaseCommand)}.");
+                    Interface.WriteMessage($"Executing {this.GetType().Name}.");
 
                     return InternalCommand();
                 }
@@ -32,7 +32,7 @@ namespace dotnet_features.Commands
             }
             catch (Exception exception)
             {
-                Interface.WriteWarning($"Error while executing {nameof(BaseCommand)}.");
+                Interface.WriteWarning($"Error while executing {this.GetType().Name}.");
                 Interface.WriteWarning(exception.ToString());
 
                 return CommandResult.Error;
