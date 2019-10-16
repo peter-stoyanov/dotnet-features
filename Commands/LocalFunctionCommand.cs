@@ -6,7 +6,7 @@ namespace dotnet_features.Commands
 {
     public class LocalFunctionCommand : BaseCommand
     {
-        protected override bool isActive => true;
+        protected override bool isActive => false;
         public LocalFunctionCommand(IUserInterface userInteface) : base(userInteface)
         {
         }
