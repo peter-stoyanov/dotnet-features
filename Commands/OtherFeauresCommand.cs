@@ -8,7 +8,7 @@ namespace dotnet_features.Commands
 {
     public class OtherFeauresCommand : BaseCommand
     {
-        protected override bool isActive => true;
+        protected override bool isActive => false;
 
         public OtherFeauresCommand(IUserInterface userInteface) : base(userInteface)
         {
